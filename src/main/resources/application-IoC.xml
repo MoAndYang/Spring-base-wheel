@@ -1,0 +1,19 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<beans>
+
+    <!-- 用于单例模式验证 && 简单类型设值注入 -->
+    <bean id="singleHelloWorldService" class="wheel.ioc.service.xmlservice.impl.HelloWorldServiceBaseXmlImpl">
+        <property name="text" value="Hello World"/>
+    </bean>
+
+    <!-- 用于原型模式验证 && 简单类型设值注入-->
+    <bean id="protoHelloWorldService" class="wheel.ioc.service.xmlservice.impl.HelloWorldServiceBaseXmlImpl" scope="prototype">
+        <property name="text" value="Hello World"/>
+    </bean>
+
+    <!-- 用于引用类型设值注入验证 -->
+    <bean id="wrapHelloWorldService" class="wheel.ioc.service.xmlservice.WrapHelloWorldServiceBaseXml">
+        <property name="helloWorldServiceBaseXml" ref="singleHelloWorldService"/>
+    </bean>
+
+</beans>
